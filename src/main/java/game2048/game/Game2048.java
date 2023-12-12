@@ -117,10 +117,7 @@ public class Game2048 implements Game {
     private boolean moveToKeysValue(List<Key> keys) {
         boolean isMovedRow = false;
 
-        List<Integer> values = new ArrayList<>();
-        for (Key key : keys) {
-            values.add(board.getValue(key));
-        }
+        List<Integer> values = board.getValues(keys);
 
         values = helper.moveAndMergeEquals(values);
 
