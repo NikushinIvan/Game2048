@@ -1,13 +1,15 @@
-package game;
+package game2048.game;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class GameHelper {
     public List<Integer> moveAndMergeEquals(List<Integer> list) {
-        moveToBegin(list);
-        mergeEquals(list);
-        moveToBegin(list);
-        return list;
+        List<Integer> res = new ArrayList<>(list);
+        moveToBegin(res);
+        mergeEquals(res);
+        moveToBegin(res);
+        return res;
     }
 
     private void moveToBegin(List<Integer> list) {
@@ -28,7 +30,7 @@ public class GameHelper {
         int i = 0;
         while (i < list.size()) {
             if (i+1 < list.size()) {
-                if ((list.get(i) != null) && (list.get(i) == list.get(i+1))) {
+                if ((list.get(i) != null) && ((list.get(i).equals(list.get(i + 1))))) {
                     list.set(i, list.get(i) * 2);
                     list.set(i+1, null);
                     i += 2;

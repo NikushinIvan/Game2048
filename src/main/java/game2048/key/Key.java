@@ -1,7 +1,8 @@
-package game.key;
+package game2048.key;
 
 public class Key {
-    private int i, j;
+    private int i;
+    private int j;
 
     public Key(int i, int j) {
         this.i = i;

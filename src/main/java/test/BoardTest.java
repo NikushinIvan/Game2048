@@ -1,13 +1,14 @@
 package test;
 
-import game.board.Board;
-import game.board.SquareBoard;
+import game2048.board.Board;
+import game2048.board.SquareBoard;
+import game2048.key.Key;
 
 import java.util.Arrays;
 import java.util.List;
 
 public class BoardTest {
-    private final static Board board = new SquareBoard(2);
+    private final static Board board = new SquareBoard<Key>(2);
 
     public static void main(String[] args) {
         board.fillBoard(Arrays.asList(1, 2, 3, null));

@@ -1,6 +1,6 @@
 package test;
 
-import game.GameHelper;
+import game2048.game.GameHelper;
 
 import java.util.Arrays;
 
