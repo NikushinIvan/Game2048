@@ -15,11 +15,11 @@ public class SquareBoard<V> extends Board<Key, V> {
             throw new RuntimeException("Initialization array is larger than field size");
         }
         board.clear();
-        Iterator<V> iter = list.iterator();
+        var iterator = list.iterator();
         for (int i = 0; i < super.getWidth(); i++) {
             for (int j = 0; j < super.getHeight(); j++) {
-                if (iter.hasNext()) {
-                    board.put(new Key(i, j), iter.next());
+                if (iterator.hasNext()) {
+                    board.put(new Key(i, j), iterator.next());
                 } else {
                     board.put(new Key(i, j), null);
                 }

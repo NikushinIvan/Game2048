@@ -27,7 +27,7 @@ public class GameHelper {
     }
 
     private void mergeEquals(List<Integer> list) {
-        int i = 0;
+        var i = 0;
         while (i < list.size()) {
             if (i+1 < list.size()) {
                 if ((list.get(i) != null) && ((list.get(i).equals(list.get(i + 1))))) {

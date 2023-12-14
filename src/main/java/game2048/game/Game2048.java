@@ -19,7 +19,7 @@ public class Game2048 implements Game {
 
     @Override
     public void init() {
-        int sizeBoard = board.getWidth() * board.getHeight();
+        var sizeBoard = board.getWidth() * board.getHeight();
 
         List<Integer> list = new ArrayList<>(sizeBoard);
         for (int i = 0; i < sizeBoard; i++) {
@@ -43,9 +43,9 @@ public class Game2048 implements Game {
     @Override
     public boolean move(Direction direction) {
         if (canMove()) {
-            boolean isMovedField = false;
-            boolean isHorizontalDirection = (direction == Direction.RIGHT) || (direction == Direction.LEFT);
-            int sizeKeys = isHorizontalDirection ? board.getHeight() : board.getWidth();
+            var isMovedField = false;
+            var isHorizontalDirection = (direction == Direction.RIGHT) || (direction == Direction.LEFT);
+            var sizeKeys = isHorizontalDirection ? board.getHeight() : board.getWidth();
 
             for (int i = 0; i < sizeKeys; i++) {
                 List<Key> keys = isHorizontalDirection ? board.getRow(i) : board.getColumn(i);
@@ -78,7 +78,7 @@ public class Game2048 implements Game {
             newItem = 2;
         }
         List<Key> availableKeys = board.availableSpace();
-        int randomIndex = random.nextInt(availableKeys.size());
+        var randomIndex = random.nextInt(availableKeys.size());
         board.addItem(availableKeys.get(randomIndex), newItem);
     }
 
@@ -100,11 +100,8 @@ public class Game2048 implements Game {
             } else {
                 keys = board.getColumn(i);
             }
-            List<Integer> values = new ArrayList<>();
-            for (Key key : keys) {
-                values.add(board.getValue(key));
-            }
-            List<Integer> newValues = helper.moveAndMergeEquals(values);
+            var values = board.getValues(keys);
+            var newValues = helper.moveAndMergeEquals(values);
             for (int index = 0; index < values.size(); index++) {
                 if (!values.get(index).equals(newValues.get(index))) {
                     return true;
@@ -117,7 +114,7 @@ public class Game2048 implements Game {
     private boolean moveToKeysValue(List<Key> keys) {
         boolean isMovedRow = false;
 
-        List<Integer> values = board.getValues(keys);
+        var values = board.getValues(keys);
 
         values = helper.moveAndMergeEquals(values);
 
